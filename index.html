@@ -1,219 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rounakdeep Singh | Software Developer</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDE Portfolio - [Your Name]</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-    <div class="preloader">
-      <div class="preloader-text">Loading Experience...</div>
-    </div>
-
-    <header>
-      <nav>
-        <div class="logo">YN.</div>
-        <ul class="nav-links">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="nav-utils">
-          <div id="theme-toggle" class="theme-toggle">
-            <i class="bx bx-moon"></i>
-          </div>
-          <div class="hamburger">
-            <i class="bx bx-menu"></i>
-          </div>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">[Your Name]</h1>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-      </nav>
     </header>
 
     <main>
-      <section id="hero">
-        <div class="hero-content">
-          <h1 class="hero-line">Crafting Digital</h1>
-          <h1 class="hero-line">
-            <span class="highlight">Experiences</span> That Inspire.
-          </h1>
-          <p class="subtitle animate-hero">
-            I'm Rounakdeep Singh, a software engineer passionate about building intelligent, user-centric web applications. 
-            I blend clean architecture with AI-driven features to craft experiences that are both intuitive and powerful.
-          </p>
-          <a href="#projects" class="cta-button animate-hero"
-            >Explore My Work</a
-          >
-        </div>
-      </section>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <p class="greeting">Hello, I'm</p>
+                <h2 class="name-title">[Your Name]</h2>
+                <h3 class="role-title">Software Development Engineer</h3>
+                <p class="tagline">Building scalable systems and solving complex technical challenges.</p>
+                <a href="#projects" class="cta-button">View Projects</a>
+            </div>
+            <div class="console-box">
+                <span id="typewriter-text" class="typed-text"></span><span class="cursor">|</span>
+            </div>
+        </section>
 
-      <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container">
-          <div class="about-text">
-            <p class="split-text">
-              I'm a passionate Software Engineer with expertise in creating
-              scalable, user-friendly solutions. My journey in tech began with a
-              fascination for how things work, which led me to pursue a degree
-              in Computer Science.
-            </p>
-            <p class="split-text">
-              I specialize in Software Development, focusing on intuitive web systems and AI integration. 
-              I thrive in collaborative settings and embrace new challenges as opportunities to learn and innovate.
-            </p>
-          </div>
-          <div class="skills">
-            <h3>Core Technologies</h3>
-            <div class="skill-tags">
-              <span>Java</span><span>Python</span><span>C++</span>
-              <span>HTML</span><span>CSS</span><span>Java Script</span>
-              <span>Git</span><span>SQL</span><span>DSA</span>
-              <span>React</span><span>Django</span>
+        <section id="about" class="section about-section">
+            <h2>About Me</h2>
+            <div class="bio-container">
+                <div class="profile-image-container">
+                    <img src="profile.jpg" alt="[Your Name]'s Professional Photo" class="profile-photo">
+                </div>
+                <p>
+                    A results-driven Software Development Engineer with **X years of experience** in designing, implementing, and optimizing high-performance applications. My expertise lies in full-stack development with a strong focus on backend scalability, microservices architecture, and cloud deployment (AWS/Azure). I thrive in fast-paced environments and am passionate about clean code and robust engineering practices.
+                </p>
+                <p>
+                    Currently seeking roles focused on **Distributed Systems** or **Platform Engineering**.
+                </p>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="experience">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">2022 - Present</div>
-            <div class="timeline-content">
-              <h3>Computer Science Engineering student at Vel Tech High Tech</h3>
-              <p>
-                Led various projects as Team Leader 
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-date">December 2024 - January 2025</div>
-            <div class="timeline-content">
-              <h3>Software Engineer, Retech Lasers, Chennai </h3>
-              <p>
-               Developed Software and Machine Learning Applications
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <section id="skills" class="section skills-section">
+            <h2>Technical Toolkit</h2>
+            <div class="skills-grid">
+                </div>
+        </section>
 
-      <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="project-grid">
-          <div class="project-card" data-tilt>
-            <div class="project-media">
-              <img
-                src="https://via.placeholder.com/600x400/4285F4/fff?text=Static+Image"
-                alt="Project 1 Fallback"
-              />
-              <video
-                src="https://www.w3schools.com/html/mov_bbb.mp4"
-                muted
-                loop
-                playsinline
-              ></video>
-            </div>
-            <div class="project-info">
-              <h3>Project Title One</h3>
-              <p>
-                A brief, compelling description of the project, its purpose, and
-                the value it provides.
-              </p>
-              <div class="project-tags">
-                <span>React</span><span>GSAP</span><span>Three.js</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank"
-                  >Live Demo <i class="bx bx-link-external"></i></a
-                ><a href="#" target="_blank"
-                  >GitHub <i class="bx bxl-github"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="project-card" data-tilt>
-            <div class="project-media">
-              <img
-                src="https://via.placeholder.com/600x400/34A853/fff?text=Project+Two"
-                alt="Project 2"
-              />
-            </div>
-            <div class="project-info">
-              <h3>Project Title Two</h3>
-              <p>
-                A brief, compelling description of the project, its purpose, and
-                the value it provides.
-              </p>
-              <div class="project-tags">
-                <span>Vue.js</span><span>Firebase</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank"
-                  >Live Demo <i class="bx bx-link-external"></i></a
-                ><a href="#" target="_blank"
-                  >GitHub <i class="bx bxl-github"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <section id="projects" class="section projects-section">
+            <h2>Signature Projects</h2>
+            <p class="project-intro">Showcasing my depth in system design, data structures, and practical application.</p>
+            <div class="projects-container">
+                <div class="project-card" data-category="Backend">
+                    <h3>Scalable Real-time Data Pipeline</h3>
+                    <img src="pipeline-screenshot.png" alt="Screenshot of the data pipeline dashboard" class="project-screenshot">
+                    <p class="tech-stack">**Tech:** Java, Kafka, Spring Boot, PostgreSQL, AWS Kinesis</p>
+                    <ul>
+                        <li>**Impact:** Designed a low-latency pipeline handling **10,000 requests/sec**, reducing data processing lag by 40%.</li>
+                        <li>**Architecture:** Implemented a fault-tolerant consumer group using Kafka, ensuring exactly-once delivery semantics.</li>
+                        <li>**Challenge:** Solved load balancing issues by containerizing services with Docker and orchestrating with Kubernetes.</li>
+                    </ul>
+                    <a href="[Link to Project Write-up]" target="_blank" class="project-link">View Detailed Write-up</a>
+                </div>
+                <div class="project-card" data-category="Algorithms">
+                    <h3>Custom Graph-Based Route Optimizer</h3>
+                    <p class="tech-stack">**Tech:** Python, C++, Dijkstra's Algorithm, Google OR-Tools</p>
+                    <ul>
+                        <li>**Impact:** Developed a custom routing algorithm that dynamically adjusts pathfinding based on real-time traffic data, saving X% in delivery costs.</li>
+                        <li>**Performance:** Optimized the core algorithm using C++ bindings for a **10x speedup** over initial Python implementation.</li>
+                        <li>**Insight:** Used a dynamic programming approach to cache and re-use sub-problem solutions for frequently requested routes.</li>
+                    </ul>
+                    <a href="[Link to Project Write-up]" target="_blank" class="project-link">View Detailed Write-up</a>
+                </div>
+                </div>
+        </section>
 
-      <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p>
-          Have a project in mind or just want to say hello? I'd love to hear
-          from you.
-        </p>
-        <form
-          action="https://formspree.io/f/YOUR_UNIQUE_ID"
-          method="POST"
-          class="contact-form"
-        >
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-            />
-          </div>
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="6"
-            required
-          ></textarea>
-          <button type="submit" class="cta-button">Send Message</button>
-        </form>
-      </section>
+        <section id="contact" class="section contact-section">
+            <h2>Get In Touch</h2>
+            <p>I'm currently open to new opportunities and interesting collaborations. You can reach me via:</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-item email-link">your.email@example.com</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-item linkedin-link">LinkedIn</a>
+                <a href="https://github.com/yourprofile" target="_blank" class="contact-item github-link">GitHub</a>
+            </div>
+        </section>
     </main>
 
-    <footer>
-      <p>Designed & Built by Your Name &copy; 2025</p>
+    <footer class="footer">
+        <p>&copy; 2025 [Your Name]. Built with clean code.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
