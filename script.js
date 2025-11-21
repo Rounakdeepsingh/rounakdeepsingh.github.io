@@ -1,111 +1,74 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    // --- 1. Typewriter Effect Logic for the Hero Section ---
+    const typewriterTextElement = document.getElementById('typewriter-text');
+    const phrases = [
+        "System Architect.",
+        "Kafka Enthusiast.",
+        "Optimizing Latency.",
+        "Solving NP-Hard Problems."
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const delayBeforeNext = 1500;
 
-    // --- GSAP PLUGIN REGISTRATION ---
-    gsap.registerPlugin(ScrollTrigger);
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
 
-    // --- CUSTOM CURSOR ---
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-    const hoverables = document.querySelectorAll('a, button, .project-card, .theme-toggle');
+        if (isDeleting) {
+            charIndex--;
+            typewriterTextElement.textContent = currentPhrase.substring(0, charIndex);
+        } else {
+            charIndex++;
+            typewriterTextElement.textContent = currentPhrase.substring(0, charIndex);
+        }
 
-    window.addEventListener('mousemove', (e) => {
-        const { clientX: x, clientY: y } = e;
-        gsap.to(cursorDot, { x, y, duration: 0.3, ease: 'power2.out' });
-        gsap.to(cursorOutline, { x, y, duration: 0.7, ease: 'power2.out' });
-    });
+        let speed = isDeleting ? deletingSpeed : typingSpeed;
 
-    hoverables.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            gsap.to(cursorOutline, { scale: 1.8, duration: 0.3 });
-        });
-        el.addEventListener('mouseleave', () => {
-            gsap.to(cursorOutline, { scale: 1, duration: 0.3 });
-        });
-    });
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            speed = delayBeforeNext;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
 
-    // --- THEME TOGGLE ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.body.classList.add(currentTheme);
-        themeToggle.innerHTML = currentTheme === 'dark-theme' ? "<i class='bx bx-sun'></i>" : "<i class='bx bx-moon'></i>";
+        setTimeout(type, speed);
     }
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        let theme = document.body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
-        localStorage.setItem('theme', theme);
-        themeToggle.innerHTML = theme === 'dark-theme' ? "<i class='bx bx-sun'></i>" : "<i class='bx bx-moon'></i>";
-    });
 
-    // --- PRELOADER & INITIAL PAGE ANIMATION ---
-    const preloader = document.querySelector('.preloader');
-    const heroLines = document.querySelectorAll('.hero-line');
-    const heroSub = document.querySelector('.animate-hero');
+    type();
 
-    const tl = gsap.timeline();
-    tl.to(preloader, { opacity: 0, duration: 0.5, delay: 1, onComplete: () => preloader.style.display = 'none' })
-      .to(heroLines, { y: 0, duration: 1, stagger: 0.2, ease: 'power3.out' })
-      .to(heroSub, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, "-=0.5");
 
-    // --- HEADER SCROLL ---
-    const header = document.querySelector('header');
-    ScrollTrigger.create({
-        start: 'top -80',
-        end: 99999,
-        toggleClass: { className: 'scrolled', targets: header }
-    });
-    
-    // --- GSAP SCROLL-TRIGGERED ANIMATIONS ---
-    // Section Titles
-    document.querySelectorAll('.section-title').forEach(title => {
-        const chars = title.textContent.split('');
-        title.innerHTML = chars.map(char => `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
+    // --- 2. Dynamic Skills Population ---
+    const skillsData = [
+        { category: "Languages", skills: ["Java (Expert)", "Python", "GoLang", "C++"] },
+        { category: "Backend", skills: ["Spring Boot", "Microservices", "REST/gRPC", "Kafka/RabbitMQ"] },
+        { category: "Databases", skills: ["PostgreSQL", "MySQL", "Redis (Caching)", "MongoDB"] },
+        { category: "DevOps/Cloud", skills: ["AWS (S3, EC2, Lambda)", "Docker", "Kubernetes (K8s)", "Terraform"] }
+    ];
+
+    const skillsGrid = document.querySelector('.skills-grid');
+
+    skillsData.forEach(item => {
+        const skillItem = document.createElement('div');
+        skillItem.className = 'skill-item';
         
-        gsap.from(title.querySelectorAll('.char'), {
-            scrollTrigger: {
-                trigger: title,
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none none'
-            },
-            yPercent: 100,
-            opacity: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-            stagger: 0.05
+        const categoryHeader = document.createElement('h3');
+        categoryHeader.textContent = item.category;
+        
+        const skillList = document.createElement('ul');
+        skillList.className = 'skill-list';
+
+        item.skills.forEach(skill => {
+            const listItem = document.createElement('li');
+            listItem.textContent = skill;
+            skillList.appendChild(listItem);
         });
-    });
 
-    // About Section Text
-    document.querySelectorAll('.split-text').forEach(text => {
-        gsap.from(text, {
-            scrollTrigger: { trigger: text, start: 'top 85%' },
-            opacity: 0, y: 30, duration: 0.8, ease: 'power2.out'
-        });
+        skillItem.appendChild(categoryHeader);
+        skillItem.appendChild(skillList);
+        skillsGrid.appendChild(skillItem);
     });
-
-    // Experience Timeline
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        gsap.from(item, {
-            scrollTrigger: { trigger: item, start: 'top 85%' },
-            opacity: 0, x: -50, duration: 0.8, ease: 'power2.out'
-        });
-    });
-
-    // Project Cards
-    document.querySelectorAll('.project-card').forEach(card => {
-        gsap.from(card, {
-            scrollTrigger: { trigger: card, start: 'top 85%' },
-            opacity: 0, y: 50, duration: 0.8, ease: 'power2.out'
-        });
-    });
-
-    // --- 3D TILT EFFECT ---
-    VanillaTilt.init(document.querySelectorAll(".project-card"), {
-        max: 15,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.5,
-    });
-
 });
